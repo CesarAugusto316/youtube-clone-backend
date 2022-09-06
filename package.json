@@ -1,0 +1,26 @@
+{
+  "name": "youtube-clone-backend",
+  "version": "1.0.0",
+  "description": "youtube clone API",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "César Rivera",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "nodemon": "^2.0.19"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

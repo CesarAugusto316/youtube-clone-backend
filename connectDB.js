@@ -1,12 +1,12 @@
-import { config } from 'dotenv';
-import mongoose from 'mongoose';
+const { config } = require('dotenv');
+const mongoose = require('mongoose');
 
 
 config({
   path: './.env'
 });
 
-export const connectDB = async () => {
+const connectDB = async () => {
   mongoose.connect(process.env.DB_URI, {
     dbName: 'youtube',
     user: process.env.DB_USER,
@@ -19,3 +19,6 @@ export const connectDB = async () => {
       console.log(error.message);
     });
 };
+
+
+module.exports = { connectDB };

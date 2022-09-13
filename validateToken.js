@@ -1,11 +1,11 @@
-import jwt from 'jsonwebtoken';
-import { createError } from './errorHandler.js';
+const jwt = require('jsonwebtoken');
+const { createError } = require('./errorHandler.js');
 
 
 /**
  * @type {import('express').RequestHandler}
  */
-export const validateToken = (req, res, next) => {
+const validateToken = (req, res, next) => {
   const accessToken = req.cookies['access_token'];
 
   if (!accessToken) {
@@ -21,3 +21,6 @@ export const validateToken = (req, res, next) => {
     next();
   });
 };
+
+
+module.exports = { validateToken };

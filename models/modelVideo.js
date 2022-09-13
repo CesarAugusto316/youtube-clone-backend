@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 
 const VideoSchemma = new mongoose.Schema({
@@ -46,4 +46,5 @@ const VideoSchemma = new mongoose.Schema({
  * MongoDB collection and defines the shape of the documents within
  * that collection.
  */
-export const VideoModel = mongoose.model('Video', VideoSchemma);
+const VideoModel = mongoose.model('Video', VideoSchemma);
+module.exports = { VideoModel };

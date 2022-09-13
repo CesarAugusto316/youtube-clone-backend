@@ -1,5 +1,5 @@
-import { createError } from '../errorHandler.js';
-import { UserModel } from '../models/modelUser.js';
+const { createError } = require('../errorHandler.js');
+const { UserModel } = require('../models/modelUser.js');
 
 
 /**
@@ -19,11 +19,11 @@ const getAll = async (req, res, next) => {
   }
 };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const getById = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const getById = async (req, res, next) => { };
 
 /**
  *
@@ -48,44 +48,45 @@ const update = async (req, res, next) => {
   }
 };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const remove = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const remove = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const subscribe = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const subscribe = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const unSubscribe = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const unSubscribe = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const like = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const like = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const disLike = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const disLike = async (req, res, next) => { };
 
-
-export const controllerUSer = {
+const controllerUSer = {
   getAll,
-  getById,
+  // getById,
   update,
-  remove,
-  subscribe,
-  unSubscribe,
-  like,
-  disLike
+  // remove,
+  // subscribe,
+  // unSubscribe,
+  // like,
+  // disLike
 };
+
+module.exports = { controllerUSer };

@@ -1,8 +1,8 @@
-import { UserModel } from '../models/modelUser.js';
-import { createError } from '../errorHandler.js';
-import process from 'process';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+const { UserModel } = require('../models/modelUser.js');
+const { createError } = require('../errorHandler.js');
+const process = require('process');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 
 /**
@@ -60,7 +60,9 @@ const signIn = async (req, res, next) => {
   }
 };
 
-export const controllerAuth = {
+const controllerAuth = {
   signUp,
   signIn
 };
+
+module.exports = { controllerAuth };

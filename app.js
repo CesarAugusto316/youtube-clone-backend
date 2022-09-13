@@ -1,8 +1,10 @@
-import express from 'express';
-import morgan from 'morgan';
-import { connectDB } from './connectDB.js';
-import { routerUser, routerAuth } from './routes/index.js';
-import cookieParser from 'cookie-parser';
+const express = require('express');
+const morgan = require('morgan');
+const { connectDB } = require('./connectDB.js');
+// const { routerUser, routerAuth } = require('./routes/');
+const { routerUser } = require('./routes/routerUser.js');
+const { routerAuth } = require('./routes/routerAuth.js');
+const cookieParser = require('cookie-parser');
 
 
 const app = express();
@@ -35,6 +37,11 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`[Server ⚡] running on port ${PORT}.`);
-});
+// skip when testing
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`[Server ⚡] running on port ${PORT}.`);
+  });
+}
+
+module.exports = { app };

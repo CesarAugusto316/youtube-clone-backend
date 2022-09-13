@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 
 const UserSchemma = new mongoose.Schema({
@@ -36,4 +36,5 @@ const UserSchemma = new mongoose.Schema({
  * MongoDB collection and defines the shape of the documents within
  * that collection.
  */
-export const UserModel = mongoose.model('User', UserSchemma);
+const UserModel = mongoose.model('User', UserSchemma);
+module.exports = { UserModel };

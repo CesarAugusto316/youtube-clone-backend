@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 
 const CommentSchemma = new mongoose.Schema({
@@ -22,4 +22,6 @@ const CommentSchemma = new mongoose.Schema({
  * MongoDB collection and defines the shape of the documents within
  * that collection.
  */
-export const CommentModel = mongoose.model('Video', CommentSchemma);
+const CommentModel = mongoose.model('Video', CommentSchemma);
+module.exports = { CommentModel };
+

@@ -1,26 +1,30 @@
-import { Router } from 'express';
-import { controllerUSer } from '../controllers/index.js';
-import { validateToken } from '../validateToken.js';
+const { Router } = require('express');
+// const { controllerUSer } = require('../controllers/index.js');
+const { controllerUSer } = require('../controllers/controllerUser.js');
+// const { validateToken } = require('../validateToken.js');
 
 
-export const routerUser = Router();
+const routerUser = Router();
 
 routerUser.route('/')
   .get(controllerUSer.getAll);
 
-routerUser.route('/:id')
-  .get(controllerUSer.getById)
-  .patch(validateToken, controllerUSer.update)
-  .delete(controllerUSer.remove);
+// routerUser.route('/:id')
+//   .get(controllerUSer.getById)
+//   .patch(validateToken, controllerUSer.update)
+//   .delete(controllerUSer.remove);
 
-routerUser.route('/sub/:channelId')
-  .patch(controllerUSer.subscribe);
+// routerUser.route('/sub/:channelId')
+//   .patch(controllerUSer.subscribe);
 
-routerUser.route('/unsub/:channelId')
-  .patch(controllerUSer.unSubscribe);
+// routerUser.route('/unsub/:channelId')
+//   .patch(controllerUSer.unSubscribe);
 
-routerUser.route('/like/:videoId')
-  .patch(controllerUSer.like);
+// routerUser.route('/like/:videoId')
+//   .patch(controllerUSer.like);
 
-routerUser.route('/dislike/:videoId')
-  .patch(controllerUSer.disLike);
+// routerUser.route('/dislike/:videoId')
+//   .patch(controllerUSer.disLike);
+
+
+module.exports = { routerUser };

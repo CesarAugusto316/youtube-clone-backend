@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development nodemon app.js",
     "lint": "eslint .",
     "test": "jest --watchAll",
-    "test:nowatch": "jest",
+    "test:nowatch": "jest --forceExit",
     "test:coverage": "jest --coverage"
   },
   "author": "César Rivera",

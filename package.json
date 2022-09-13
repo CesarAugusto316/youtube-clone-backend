@@ -6,18 +6,23 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "NODE_ENV=development nodemon app.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "César Rivera",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.4"
   },
   "devDependencies": {
     "eslint": "^8.23.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   },
   "engines": {

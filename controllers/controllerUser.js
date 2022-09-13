@@ -1,10 +1,12 @@
+import { createError } from '../errorHandler.js';
 import { UserModel } from '../models/modelUser.js';
 
+
 /**
- *  
+ *
  * @type {import("express").RequestHandler} 
  */
-export const controllerUSer = async (req, res, next) => {
+const getAll = async (req, res, next) => {
   try {
     const users = await UserModel.find();
 
@@ -15,4 +17,75 @@ export const controllerUSer = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const getById = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const update = async (req, res, next) => {
+  if (req.params.id === req.user.id) {
+    try {
+      const updatedUser = await UserModel
+        .findByIdAndUpdate(req.user.id, { $set: req.body }, { new: true });
+
+      res.status(200).json({
+        status: 'success',
+        user: updatedUser
+      });
+    } catch (error) {
+      next(error);
+    }
+
+  } else {
+    next(createError(403, 'You only can update your account'));
+  }
+};
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const remove = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const subscribe = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const unSubscribe = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const like = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const disLike = async (req, res, next) => { };
+
+
+export const controllerUSer = {
+  getAll,
+  getById,
+  update,
+  remove,
+  subscribe,
+  unSubscribe,
+  like,
+  disLike
 };

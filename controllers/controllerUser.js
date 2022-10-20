@@ -42,51 +42,65 @@ const update = async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-
   } else {
     next(createError(403, 'You only can update your account'));
   }
 };
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const remove = async (req, res, next) => { };
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const remove = async (req, res, next) => {
+  if (req.params.id === req.user.id) {
+    try {
+      await UserModel.findByIdAndDelete(req.user.id);
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const subscribe = async (req, res, next) => { };
+      res.status(200).json({
+        status: 'success, user deleted',
+        user: null
+      });
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    next(createError(403, 'You only can update your account'));
+  }
+};
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const unSubscribe = async (req, res, next) => { };
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const subscribe = async (req, res, next) => { };
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const like = async (req, res, next) => { };
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const unSubscribe = async (req, res, next) => { };
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const disLike = async (req, res, next) => { };
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const like = async (req, res, next) => { };
+
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const disLike = async (req, res, next) => { };
 
 const controllerUSer = {
   getAll,
   // getById,
   update,
-  // remove,
-  // subscribe,
-  // unSubscribe,
-  // like,
-  // disLike
+  remove,
+  subscribe,
+  unSubscribe,
+  like,
+  disLike
 };
 
 module.exports = { controllerUSer };

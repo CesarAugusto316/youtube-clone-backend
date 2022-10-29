@@ -68,39 +68,39 @@ const remove = async (req, res, next) => {
   }
 };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const subscribe = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const subscribe = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const unSubscribe = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const unSubscribe = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const like = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const like = async (req, res, next) => { };
 
-/**
- *
- * @type {import("express").RequestHandler} 
- */
-const disLike = async (req, res, next) => { };
+// /**
+//  *
+//  * @type {import("express").RequestHandler} 
+//  */
+// const disLike = async (req, res, next) => { };
 
 const controllerUSer = {
   getAll,
   // getById,
   update,
   remove,
-  subscribe,
-  unSubscribe,
-  like,
-  disLike
+  // subscribe,
+  // unSubscribe,
+  // like,
+  // disLike
 };
 
 module.exports = { controllerUSer };

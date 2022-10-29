@@ -42,17 +42,31 @@ const update = async (req, res, next) => {
     } catch (error) {
       next(error);
     }
-
   } else {
     next(createError(403, 'You only can update your account'));
   }
 };
 
-// /**
-//  *
-//  * @type {import("express").RequestHandler} 
-//  */
-// const remove = async (req, res, next) => { };
+/**
+ *
+ * @type {import("express").RequestHandler} 
+ */
+const remove = async (req, res, next) => {
+  if (req.params.id === req.user.id) {
+    try {
+      await UserModel.findByIdAndDelete(req.user.id);
+
+      res.status(200).json({
+        status: 'success, user deleted',
+        user: null
+      });
+    } catch (error) {
+      next(error);
+    }
+  } else {
+    next(createError(403, 'You only can update your account'));
+  }
+};
 
 // /**
 //  *
@@ -82,7 +96,7 @@ const controllerUSer = {
   getAll,
   // getById,
   update,
-  // remove,
+  remove,
   // subscribe,
   // unSubscribe,
   // like,

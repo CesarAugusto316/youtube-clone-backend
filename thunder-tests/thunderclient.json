@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "cd75ed0f-9890-42e4-9072-65b668758d1c",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "getAll",
+    "url": "http://localhost:5000/api/v1/users/",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-10-20T01:46:26.168Z",
+    "modified": "2022-10-20T02:07:05.782Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "544ddeca-22be-40eb-be9f-76b3c93fea9e",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "login user",
+    "url": "http://localhost:5000/api/v1/auth/login",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-10-20T01:52:29.468Z",
+    "modified": "2022-10-20T02:00:32.304Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"test-10\",\n  \"password\": \"test-10\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "fc711f6b-9310-4105-9afe-c6bc95c89760",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "signup user",
+    "url": "http://localhost:5000/api/v1/auth/signup",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-10-20T01:58:04.408Z",
+    "modified": "2022-10-20T01:59:44.414Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"test-10\",\n  \"email\": \"test-10@gmail.com\",\n  \"password\": \"test-10\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e6f76335-4d3b-412c-a821-df724b666ec1",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "update user",
+    "url": "http://localhost:5000/api/v1/users/6350ab9765268bae9fa84600",
+    "method": "PATCH",
+    "sortNum": 40000,
+    "created": "2022-10-20T02:03:51.750Z",
+    "modified": "2022-10-20T02:07:09.381Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"image\": \"my-image\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "40e26cec-64ae-4a18-acc4-bdac9457ea5d",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "delete user",
+    "url": "http://localhost:5000/api/v1/users/6350ab9765268bae9fa84600",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2022-10-20T02:12:58.775Z",
+    "modified": "2022-10-20T02:13:22.217Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"image\": \"my-image\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

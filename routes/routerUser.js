@@ -1,7 +1,7 @@
 const { Router } = require('express');
 // const { controllerUSer } = require('../controllers/index.js');
 const { controllerUSer } = require('../controllers/controllerUser.js');
-// const { validateToken } = require('../validateToken.js');
+const { validateToken } = require('../validateToken.js');
 
 
 const routerUser = Router();
@@ -9,10 +9,10 @@ const routerUser = Router();
 routerUser.route('/')
   .get(controllerUSer.getAll);
 
-// routerUser.route('/:id')
-//   .get(controllerUSer.getById)
-//   .patch(validateToken, controllerUSer.update)
-//   .delete(controllerUSer.remove);
+routerUser.route('/:id')
+  .patch(validateToken, controllerUSer.update)
+  .delete(validateToken, controllerUSer.remove);
+// .get(validateToken, controllerUSer.getById)
 
 // routerUser.route('/sub/:channelId')
 //   .patch(controllerUSer.subscribe);

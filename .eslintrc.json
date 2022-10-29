@@ -11,10 +11,9 @@
     "sourceType": "script"
   },
   "rules": {
-    "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "implicit-arrow-linebreak": "error",
-    "no-unused-vars":"warn"
+    "no-unused-vars": "warn"
   }
 }

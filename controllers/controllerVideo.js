@@ -16,10 +16,15 @@ const update = async (req, res, next) => {
     const video = await VideoModel.findById();
     if (!video) return next(createError(404, 'Video not found'));
     if (req.user.id === video.userID) {
-      const updatedUser = await VideoModel.findByIdAndUpdate(req.params.id);
-
-      res.status(20)
-
+      const updatedUser = await VideoModel.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set:req.body
+        },{
+          new:true
+        }
+      );
+      res.status(200).json(updatedUser);
     }
   } catch (error) {
     next(error);

@@ -1,5 +1,5 @@
-const { createError } = require('./../errorHandler');
-const { VideoModel } = require('./../models/modelVideo');
+const { createError } = require('../errorHandler');
+const { VideoModel } = require('../models/modelVideo');
 
 const add = async (req, res, next) => {
   const newVideo = new VideoModel({ userID: req.user.id, ...req.body });

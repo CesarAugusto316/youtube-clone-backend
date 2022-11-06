@@ -3,9 +3,11 @@ const { controllerVideo } = require('../controllers/controllerVideo');
 const { validateToken } = require('../validateToken');
 
 
-const videoRouter = Router();
+const routerVideo = Router();
 
-videoRouter.path('/').post(validateToken, controllerVideo.add);
-videoRouter.path('/:id').put(validateToken, controllerVideo.update);
-videoRouter.path('/:id').delete(validateToken, controllerVideo.remove);
-videoRouter.path('/:id').get(validateToken, controllerVideo.get);
+routerVideo.route('/').post(validateToken, controllerVideo.add);
+routerVideo.route('/:id').put(validateToken, controllerVideo.update);
+routerVideo.route('/:id').delete(validateToken, controllerVideo.remove);
+routerVideo.route('/:id').get(validateToken, controllerVideo.get);
+
+module.exports = { routerVideo };

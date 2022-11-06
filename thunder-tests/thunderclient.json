@@ -22,12 +22,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-20T01:52:29.468Z",
-    "modified": "2022-10-20T02:00:32.304Z",
+    "modified": "2022-11-06T22:49:10.111Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"test-10\",\n  \"password\": \"test-10\"\n}",
+      "raw": "{\n  \"name\": \"test-5\",\n  \"password\": \"test5\"\n}",
       "form": []
     },
     "tests": []
@@ -41,12 +41,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-10-20T01:58:04.408Z",
-    "modified": "2022-10-20T01:59:44.414Z",
+    "modified": "2022-11-06T22:48:53.224Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"test-10\",\n  \"email\": \"test-10@gmail.com\",\n  \"password\": \"test-10\"\n}",
+      "raw": "{\n  \"name\": \"test-5\",\n  \"email\": \"test-test-5@email.com\",\n  \"password\": \"test5\"\n}",
       "form": []
     },
     "tests": []
@@ -56,16 +56,16 @@
     "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
     "containerId": "",
     "name": "update user",
-    "url": "http://localhost:5000/api/v1/users/6350ab9765268bae9fa84600",
+    "url": "http://localhost:5000/api/v1/users/635d9bbd2db6ed8fc4048ee2",
     "method": "PATCH",
     "sortNum": 40000,
     "created": "2022-10-20T02:03:51.750Z",
-    "modified": "2022-10-20T02:07:09.381Z",
+    "modified": "2022-10-29T21:34:28.318Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"image\": \"my-image\"\n}",
+      "raw": "{\n  \"name\": \"camilo\"\n}",
       "form": []
     },
     "tests": []
@@ -75,16 +75,30 @@
     "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
     "containerId": "",
     "name": "delete user",
-    "url": "http://localhost:5000/api/v1/users/6350ab9765268bae9fa84600",
+    "url": "http://localhost:5000/api/v1/users/636839420ed2fbcd4a2832e7",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2022-10-20T02:12:58.775Z",
-    "modified": "2022-10-20T02:13:22.217Z",
+    "modified": "2022-11-06T22:47:10.928Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "940d7391-76fc-49ca-b42d-4036b2357d8d",
+    "colId": "e998fff4-add5-4d99-a15a-2e9ebd16655b",
+    "containerId": "",
+    "name": "addVideo",
+    "url": "http://localhost:5000/api/v1/video",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2022-11-06T22:39:24.566Z",
+    "modified": "2022-11-06T22:43:11.796Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"image\": \"my-image\"\n}",
+      "raw": "{\n  \n}",
       "form": []
     },
     "tests": []

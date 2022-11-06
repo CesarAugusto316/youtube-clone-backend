@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @param {number} status
  * @param {string} message
  */
@@ -10,6 +10,5 @@ const createError = (status, message) => {
 
   return err;
 };
-
 
 module.exports = { createError };

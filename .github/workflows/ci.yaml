@@ -1,4 +1,4 @@
-name: Continous Integration
+name: Continuos Integration
 
 on:
   pull_request:

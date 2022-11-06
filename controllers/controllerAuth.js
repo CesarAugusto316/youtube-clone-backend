@@ -4,10 +4,9 @@ const process = require('process');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 /**
  *
- * @type {import("express").RequestHandler} 
+ * @type {import("express").RequestHandler}
  */
 const signUp = async (req, res, next) => {
   try {
@@ -18,7 +17,7 @@ const signUp = async (req, res, next) => {
     res.status(201).json({
       status: 'success',
       message: 'user has been created',
-      user
+      user,
     });
   } catch (error) {
     next(error); // calls default errorHandler
@@ -27,34 +26,30 @@ const signUp = async (req, res, next) => {
 
 /**
  *
- * @type {import("express").RequestHandler} 
+ * @type {import("express").RequestHandler}
  */
 const signIn = async (req, res, next) => {
   try {
     const user = await UserModel.findOne({ name: req.body.name });
 
     if (user) {
-      const hasValidPassword = await bcrypt
-        .compare(req.body.password, user?.password || '');
+      const hasValidPassword = await bcrypt.compare(
+        req.body.password,
+        user?.password || ''
+      );
 
       if (hasValidPassword) {
         const payload = { id: user._id };
         const token = jwt.sign(payload, process.env.JWT_SECRET);
         delete user._doc.password;
 
-        res
-          .cookie('access_token', token, { httpOnly: true })
-          .status(200).json({
-            status: 'success',
-            message: 'user has been logged In',
-            user
-          });
-      } else
-        next(createError(401, 'invalid password'));
-    }
-    else
-      next(createError(404, 'user not found'));
-
+        res.cookie('access_token', token, { httpOnly: true }).status(200).json({
+          status: 'success',
+          message: 'user has been logged In',
+          user,
+        });
+      } else next(createError(401, 'invalid password'));
+    } else next(createError(404, 'user not found'));
   } catch (error) {
     next(error); // calls default errorHandler
   }
@@ -62,7 +57,9 @@ const signIn = async (req, res, next) => {
 
 const controllerAuth = {
   signUp,
-  signIn
+  signIn,
 };
 
 module.exports = { controllerAuth };
+
+

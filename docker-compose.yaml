@@ -1,0 +1,33 @@
+version: "3"
+
+# here we list our containers
+services:
+  # express-api:
+  #   build: .
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     PORT: 8080
+  #   depends_on:
+  #     - mongodb
+  #     - redisdb
+
+  mongodb:
+    image: mongo
+    restart: always
+    ports: 
+     - 27017:27017
+    environment:
+      # this env variables are required for mongodb
+      MONGO_INITDB_ROOT_USERNAME: dev
+      MONGO_INITDB_ROOT_PASSWORD: dev
+    volumes:
+      # we persist any data inside the container into our localComputer
+      # if we delete the container we can bring our data back again
+      - mongo-db:/data/db
+
+  # redisdb:
+  #   image: redis
+
+volumes:
+  mongo-db:

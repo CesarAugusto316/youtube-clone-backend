@@ -1,5 +1,5 @@
 const { UserModel } = require('../models/modelUser.js');
-const { createError } = require('../errorHandler.js');
+const { HttpError } = require('../middlewares/HttpError');
 const process = require('process');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -40,6 +40,7 @@ const signIn = async (req, res, next) => {
       if (hasValidPassword) {
         const payload = { id: user._id };
         const token = jwt.sign(payload, process.env.JWT_SECRET);
+        // @ts-ignore
         delete user._doc.password;
 
         res
@@ -50,10 +51,10 @@ const signIn = async (req, res, next) => {
             user
           });
       } else
-        next(createError(401, 'invalid password'));
+        next(new HttpError(401, 'invalid password'));
     }
     else
-      next(createError(404, 'user not found'));
+      next(new HttpError(404, 'user not found'));
 
   } catch (error) {
     next(error); // calls default errorHandler

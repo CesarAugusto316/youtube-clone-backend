@@ -5,23 +5,51 @@ on:
     branches:
       - main
 
+env:
+  NODE_ENV: development
+  DB_HOST: localhost
+  DB_URI: mongodb://dev:dev@localhost:27017
+  DB_NAME: youtube_dev
+  # jwt env_variables
+  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }} # example
+  REFRESH_TOKEN_SECRET: ${{ secrets.REFRESH_TOKEN_SECRET }} # example
+
 jobs:
   linting:
     name: Linting the code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: yarn
-      - name: Run linting
-        run: yarn run lint
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: yarn install
+      - run: yarn run lint
 
   testing:
     name: Testing the code
     runs-on: ubuntu-latest
+    services:
+      # Label used to access the service container
+      mongodb:
+        # Docker Hub image
+        image: mongo
+        # Provide the password for mongoDB
+        env:
+          MONGO_INITDB_ROOT_USERNAME: dev
+          MONGO_INITDB_ROOT_PASSWORD: dev
+        ports:
+          - 27017:27017
     steps:
-      - uses: actions/checkout@v2
-      - name: Install Dependencies
-        run: yarn
-      - name: Run tests
-        run: yarn run test:nowatch
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: yarn install
+      - run: sudo npm install -g firebase-tools
+      - run: sudo apt install default-jdk
+      - run: docker compose up
+      - run: node ./src/services/firebase/genGoogleCrendentials.js
+      - run: export GOOGLE_APPLICATION_CREDENTIALS=~/larnU_bootcamp/devs_portal_backend/src/services/firebase/larnu-devs-portal-2ba51ded54fa.json
+      - run: firebase emulators:exec --only storage "npm run test:nowatch"
+      - run: docker compose down

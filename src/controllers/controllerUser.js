@@ -1,4 +1,4 @@
-const { createError } = require('../errorHandler.js');
+const { HttpError } = require('../middlewares/HttpError');
 const { UserModel } = require('../models/modelUser.js');
 
 
@@ -30,10 +30,10 @@ const getAll = async (req, res, next) => {
  * @type {import("express").RequestHandler} 
  */
 const update = async (req, res, next) => {
-  if (req.params.id === req.user.id) {
+  if (req.params.id === req['user']?.id) {
     try {
       const updatedUser = await UserModel
-        .findByIdAndUpdate(req.user.id, { $set: req.body }, { new: true });
+        .findByIdAndUpdate(req['user']?.id, { $set: req.body }, { new: true });
 
       res.status(200).json({
         status: 'success',
@@ -43,7 +43,7 @@ const update = async (req, res, next) => {
       next(error);
     }
   } else {
-    next(createError(403, 'You only can update your account'));
+    next(new HttpError(403, 'You only can update your account'));
   }
 };
 
@@ -52,9 +52,9 @@ const update = async (req, res, next) => {
  * @type {import("express").RequestHandler} 
  */
 const remove = async (req, res, next) => {
-  if (req.params.id === req.user.id) {
+  if (req.params.id === req['user']?.id) {
     try {
-      await UserModel.findByIdAndDelete(req.user.id);
+      await UserModel.findByIdAndDelete(req['user']?.id);
 
       res.status(200).json({
         status: 'success, user deleted',
@@ -64,7 +64,7 @@ const remove = async (req, res, next) => {
       next(error);
     }
   } else {
-    next(createError(403, 'You only can update your account'));
+    next(new HttpError(403, 'You only can update your account'));
   }
 };
 

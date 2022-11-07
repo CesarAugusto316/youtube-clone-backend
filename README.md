@@ -11,7 +11,7 @@
 
 ## Prerequisites
 
-- node >=16
+- node 16
 
 ## Install
 
@@ -19,7 +19,17 @@
 yarn install
 ```
 
+## MongoDB
+
+```bash
+docker compose create # for the first time
+docker compose start # starts the container
+docker compose stop
+```
+
 ## Usage
+
+Before running the dev server, make sure mongoDB has been initialized.
 
 ```sh
 yarn run dev
@@ -35,13 +45,14 @@ yarn run test
 
 👤 **César Rivera**
 
-* Website: http://react-final-pi.vercel.app/
-* Github: [@CesarAuguto316](https://github.com/CesarAuguto316)
-* LinkedIn: [@Cesar Rivera](https://linkedin.com/in/Cesar Rivera)
+- Website: http://react-final-pi.vercel.app/
+- Github: [@CesarAuguto316](https://github.com/CesarAuguto316)
+- LinkedIn: [@Cesar Rivera](https://linkedin.com/in/Cesar Rivera)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

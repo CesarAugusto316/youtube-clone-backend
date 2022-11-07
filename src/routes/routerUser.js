@@ -1,7 +1,6 @@
 const { Router } = require('express');
-// const { controllerUSer } = require('../controllers/index.js');
 const { controllerUSer } = require('../controllers/controllerUser.js');
-const { validateToken } = require('../validateToken.js');
+const { validateToken } = require('../middlewares/validateToken');
 
 
 const routerUser = Router();
